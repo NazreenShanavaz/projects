@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'Shadows Into Light', cursive;
+  background-color: #fff8f0;
+  background: linear-gradient(to bottom, #ffe4e1, #fff0f5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.8s ease;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  background-color: #ffffff;
+  border: 2px dashed #f8bbd0;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.mood-buttons button {
+  font-size: 2rem;
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.mood-buttons button:hover {
+  transform: scale(1.1) rotate(2deg);
+  animation: wiggle 0.3s ease-in-out;
+}
+
+@keyframes wiggle {
+  0% { transform: scale(1.05) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1.05) rotate(0deg); }
+}
+
+
+
+#vibe-box {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffeecf;
+  border-radius: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.glow-text {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+

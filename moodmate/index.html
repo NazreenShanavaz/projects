@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodMate</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Hey There! 👋<br>How are you feeling today?</h1>
+
+    <div class="mood-buttons">
+      <button onclick="showMood('happy')">😄</button>
+      <button onclick="showMood('sad')">😔</button>
+      <button onclick="showMood('angry')">😡</button>
+      <button onclick="showMood('tired')">😴</button>
+      <button onclick="showMood('loved')">😍</button>
+    </div>
+
+    <div id="vibe-box" class="hidden">
+      <h2 id="quote"></h2>
+      <p id="task"></p>
+      <a id="music" href="#" target="_blank">🎵 Listen to Mood Music</a>
+      <p id="tip" class="glow-text"></p>
+      <textarea placeholder="Write how you're feeling..." rows="4"></textarea>
+    </div>
+  </div>
+
+  <script src="mood.js"></script>
+</body>
+</html>
