@@ -66,9 +66,16 @@ def add_expense():
         return
 
     messagebox.showinfo("Saved", "Expense added successfully.")
+    clear_form()
+    refresh_table()
+
+
+def clear_form():
+    """Clear all form fields and reset to defaults."""
+    date_var.set(date.today().isoformat())
+    category_var.set("🍔 Food")
     amount_var.set("")
     note_text.delete("1.0", tk.END)
-    refresh_table()
 
 
 # Create main window with attractive styling
@@ -173,6 +180,12 @@ add_button = tk.Button(button_frame, text="➕ Add Expense", command=add_expense
                       relief=tk.FLAT, padx=20, pady=8, cursor='hand2')
 add_button.pack(side=tk.RIGHT, padx=(0, 10))
 
+# Clear button with emoji
+clear_button = tk.Button(button_frame, text="🗑️ Clear Form", command=clear_form,
+                        bg='#e74c3c', fg='white', font=('Segoe UI', 11, 'bold'),
+                        relief=tk.FLAT, padx=20, pady=8, cursor='hand2')
+clear_button.pack(side=tk.RIGHT, padx=(0, 10))
+
 # Export CSV button with emoji
 export_button = tk.Button(button_frame, text="📄 Export CSV", command=export_to_csv,
                          bg='#f39c12', fg='white', font=('Segoe UI', 11, 'bold'),
@@ -245,17 +258,23 @@ refresh_table()
 def on_enter(event):
     if event.widget == add_button:
         event.widget['bg'] = '#2ecc71'
+    elif event.widget == clear_button:
+        event.widget['bg'] = '#c0392b'
     elif event.widget == export_button:
         event.widget['bg'] = '#e67e22'
 
 def on_leave(event):
     if event.widget == add_button:
         event.widget['bg'] = '#27ae60'
+    elif event.widget == clear_button:
+        event.widget['bg'] = '#e74c3c'
     elif event.widget == export_button:
         event.widget['bg'] = '#f39c12'
 
 add_button.bind('<Enter>', on_enter)
 add_button.bind('<Leave>', on_leave)
+clear_button.bind('<Enter>', on_enter)
+clear_button.bind('<Leave>', on_leave)
 export_button.bind('<Enter>', on_enter)
 export_button.bind('<Leave>', on_leave)
 

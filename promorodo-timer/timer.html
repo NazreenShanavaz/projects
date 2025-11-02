@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app">
+    <section class="timer-section">
+      <div class="timer-wrapper">
+        <svg class="timer-svg" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2b6cb0"></stop>
+              <stop offset="100%" stop-color="#6b46c1"></stop>
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="60" cy="60" r="54" />
+          <circle class="ring-progress" cx="60" cy="60" r="54" stroke="url(#ringGradient)" />
+        </svg>
+        <div class="timer-text" aria-live="polite" aria-atomic="true">
+          <span id="time">00:00</span>
+        </div>
+      </div>
+
+      <div class="controls" role="group" aria-label="Timer controls">
+        <button id="startBtn" class="btn">Start</button>
+        <button id="pauseBtn" class="btn">Pause</button>
+        <button id="resetBtn" class="btn btn-reset">Reset</button>
+        <a class="btn" href="index.html" style="text-decoration:none;">Change Plan</a>
+      </div>
+
+      <p class="motivation">Focus — Stay focused, you got this!</p>
+      <p id="completionMessage" class="completion-message" aria-live="polite" hidden>🎉 You finished your study goal! 🎉</p>
+    </section>
+  </main>
+
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script defer src="script.js"></script>
+</body>
+</html>
+
+

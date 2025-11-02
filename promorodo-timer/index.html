@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app">
+    <section class="timer-section" style="max-width:520px;margin:0 auto;">
+      <div class="timer-wrapper" style="width:100%;height:auto;padding:24px;">
+        <div style="width:100%;">
+          <h1 class="timer-text" style="font-size:32px; margin:0 0 10px;">Pomodoro Timer</h1>
+          <p class="motivation" style="margin-top:0;">🐼🐼Plan your study🐼🐼</p>
+        </div>
+        <div style="width:100%; margin-top:12px;">
+          <label for="hoursInput" style="display:block; font-weight:600; margin-bottom:6px;">How many hours are you going to study today?</label>
+          <input id="hoursInput" type="number" min="0.25" step="0.25" placeholder="e.g. 2 or 3.5" style="width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color:#f8fafc; outline:none;">
+        </div>
+        <div style="width:100%; margin-top:16px;">
+          <div style="font-weight:600; margin-bottom:8px;">Choose your mode</div>
+          <div style="display:flex; gap:10px; justify-content:center;">
+            <button class="btn" id="mode25">25–5</button>
+            <button class="btn" id="mode50">50–10</button>
+          </div>
+        </div>
+        <div style="width:100%; margin-top:18px; display:flex; gap:10px; justify-content:center;">
+          <button class="btn" id="startSetup">Start</button>
+          <button class="btn btn-reset" id="clearSetup" title="Clear saved plan">Clear</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      var selectedMode = null; // '25-5' or '50-10'
+      var hoursInput = document.getElementById('hoursInput');
+      var mode25 = document.getElementById('mode25');
+      var mode50 = document.getElementById('mode50');
+      var startBtn = document.getElementById('startSetup');
+      var clearBtn = document.getElementById('clearSetup');
+
+      function setActive(btn, active){
+        btn.style.outline = active ? '2px solid rgba(139,92,246,0.8)' : 'none';
+        btn.style.boxShadow = active ? '0 0 0 4px rgba(139,92,246,0.25)' : '';
+      }
+
+      mode25.addEventListener('click', function(){ selectedMode = '25-5'; setActive(mode25,true); setActive(mode50,false); });
+      mode50.addEventListener('click', function(){ selectedMode = '50-10'; setActive(mode50,true); setActive(mode25,false); });
+
+      startBtn.addEventListener('click', function(){
+        var val = parseFloat((hoursInput.value || '').replace(',', '.'));
+        if (!isFinite(val) || val <= 0){
+          alert('Please enter a valid number of hours.');
+          return;
+        }
+        if (!selectedMode){
+          alert('Please choose a mode (25–5 or 50–10).');
+          return;
+        }
+        localStorage.setItem('studyHours', String(val));
+        localStorage.setItem('studyMode', selectedMode);
+        window.location.href = 'timer.html';
+      });
+
+      clearBtn.addEventListener('click', function(){
+        localStorage.removeItem('studyHours');
+        localStorage.removeItem('studyMode');
+        hoursInput.value = '';
+        selectedMode = null;
+        setActive(mode25,false); setActive(mode50,false);
+      });
+
+      // Prefill if exists
+      var savedHours = parseFloat(localStorage.getItem('studyHours') || '');
+      var savedMode = localStorage.getItem('studyMode');
+      if (isFinite(savedHours) && savedHours > 0) hoursInput.value = String(savedHours);
+      if (savedMode === '25-5'){ selectedMode = savedMode; setActive(mode25,true); }
+      if (savedMode === '50-10'){ selectedMode = savedMode; setActive(mode50,true); }
+    })();
+  </script>
+  </body>
+</html>
+
+
