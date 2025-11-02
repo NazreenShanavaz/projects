@@ -1,4 +1,4 @@
-# 💸 Expense Tracker 💕
+# 💸 Expense Tracker 
 
 A beautiful and user-friendly desktop application for tracking personal expenses built with Python Tkinter and SQLite.
 
