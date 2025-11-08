@@ -1,1 +1,137 @@
-# projects
+# 🔐 Secure File Encryptor (Python)
+
+A simple and secure tool to **encrypt and decrypt any file** (text, images, PDFs, docs, etc.) using strong cryptography.  
+This protects your data from unauthorized access — only someone with the secret key can decrypt the files.
+
+---
+
+## ✅ Features
+✔ Generate a secure encryption key  
+✔ Encrypt any file into a protected `.enc` format  
+✔ Decrypt encrypted files back to original  
+✔ Automatic logging of encryption/decryption actions  
+✔ Works for all file types  
+✔ Beginner-friendly menu interface  
+
+---
+
+## 📁 Project Structure
+```
+secure-file-encryptor/
+│
+├── encryption/
+│ ├── encrypt.py # key generation + encryption
+│ └── decrypt.py # file decryption
+│
+├── keys/ # stores generated secret.key
+├── logs/ # action logs
+├── samples/ # test files
+│
+└── main.py # CLI menu
+```
+---
+
+## 🚀 How to Run
+
+### 1️⃣ Install Requirements
+Make sure Python is installed, then run:
+```
+pip install cryptography
+
+```
+
+---
+
+### 2️⃣ Run the Tool
+```
+
+python main.py
+
+===== Secure File Encryptor =====
+
+Generate Encryption Key
+
+Encrypt a File
+
+Decrypt a File
+
+Exit
+```
+
+---
+
+### ✅ Example Usage
+```
+#### ✅ Encrypt a file
+- Choose option **2**
+- Enter path:  
+samples/test.txt
+
+- A new file will be created:
+samples/test.txt.enc
+
+#### ✅ Decrypt a file
+- Choose option **3**
+- Enter:
+samples/test.txt.enc
+
+- Original file is restored
+```
+---
+
+## 📜 Logging
+```
+All actions are saved in:
+logs/actions.log
+
+makefile
+Copy code
+
+Example:
+ENCRYPTED | test.txt -> test.txt.enc
+DECRYPTED | test.txt.enc -> test.txt
+
+yaml
+Copy code
+```
+---
+
+## 🔒 How it Works (Simple Explanation)
+
+- The program generates a **secret key**
+- This key scrambles the file into unreadable data (`.enc`)
+- The same key is needed to decrypt and restore the file  
+- Without the key, the content cannot be recovered
+
+This uses `Fernet` encryption from the `cryptography` library — secure, reliable, and used in real-world applications.
+
+---
+
+## ✅ Skills Demonstrated
+- Python file handling
+- Cryptography (Fernet)
+- Secure key management
+- Logging actions
+- Modular project structure
+- CLI application building
+
+
+---
+
+## ✅ Future Improvements
+✅ GUI using Tkinter  
+✅ Password-protected key  
+✅ Show logs in menu  
+✅ Detect brute-force attempts  
+✅ File integrity check (SHA checksum)
+
+---
+
+## 👤 Author
+**Nazreen Shanavaz**  
+Computer Science Engineering Student  
+Cybersecurity + Python Enthusiast
+
+---
+
+If you like this project, ⭐ star the repo!
