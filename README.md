@@ -84,15 +84,10 @@ samples/test.txt.enc
 All actions are saved in:
 logs/actions.log
 
-makefile
-Copy code
-
 Example:
 ENCRYPTED | test.txt -> test.txt.enc
 DECRYPTED | test.txt.enc -> test.txt
 
-yaml
-Copy code
 ```
 ---
 
