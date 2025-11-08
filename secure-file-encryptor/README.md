@@ -35,22 +35,17 @@ secure-file-encryptor/
 
 ### 1️⃣ Install Requirements
 Make sure Python is installed, then run:
-
+```
 pip install cryptography
 
-yaml
-Copy code
+```
 
 ---
 
 ### 2️⃣ Run the Tool
+```
 
 python main.py
-
-css
-Copy code
-
-You will see a menu:
 
 ===== Secure File Encryptor =====
 
@@ -61,52 +56,39 @@ Encrypt a File
 Decrypt a File
 
 Exit
-
-yaml
-Copy code
+```
 
 ---
 
 ### ✅ Example Usage
-
+```
 #### ✅ Encrypt a file
 - Choose option **2**
 - Enter path:  
 samples/test.txt
 
-cpp
-Copy code
 - A new file will be created:
 samples/test.txt.enc
-
-markdown
-Copy code
 
 #### ✅ Decrypt a file
 - Choose option **3**
 - Enter:
 samples/test.txt.enc
 
-yaml
-Copy code
 - Original file is restored
-
+```
 ---
 
 ## 📜 Logging
+```
 All actions are saved in:
 logs/actions.log
-
-makefile
-Copy code
 
 Example:
 ENCRYPTED | test.txt -> test.txt.enc
 DECRYPTED | test.txt.enc -> test.txt
 
-yaml
-Copy code
-
+```
 ---
 
 ## 🔒 How it Works (Simple Explanation)
@@ -128,7 +110,6 @@ This uses `Fernet` encryption from the `cryptography` library — secure, reliab
 - Modular project structure
 - CLI application building
 
-Perfect for cybersecurity + Python beginner portfolio.
 
 ---
 
